@@ -1,3 +1,5 @@
+import './QuizItem.css';
+
 type QuizItemProps = {
   pergunta: string;
   options: string[];
@@ -17,21 +19,25 @@ const QuizItem = ({
 }: QuizItemProps) => {
   if (active === false) return null;
   return (
-    <fieldset>
-      <legend>{pergunta}</legend>
-      {options.map((option) => (
-        <label key={option} style={{ fontFamily: 'monospace' }}>
-          <input
-            type="radio"
-            id={id}
-            value={option}
-            checked={value === option}
-            onChange={onChange}
-          />
-          {option}
-        </label>
-      ))}
-    </fieldset>
+    <div className="quiz">
+      <h2 className="quiz__question">{pergunta}</h2>
+      <div className="quiz__options">
+        {options.map((option) => (
+          <div key={option} className="quiz__options--item">
+            <label style={{ fontFamily: 'monospace' }}>
+              <input
+                type="radio"
+                id={id}
+                value={option}
+                checked={value === option}
+                onChange={onChange}
+              />
+              {option}
+            </label>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

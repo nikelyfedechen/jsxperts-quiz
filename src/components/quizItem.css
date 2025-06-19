@@ -1,0 +1,28 @@
+.quiz {
+    width: 100%;
+}
+
+.quiz__question {
+    text-align: initial;
+}
+
+.quiz__options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quiz__options--item {
+    background-color: rgba(153, 161, 179, .2);
+    text-align: initial;
+    font-weight: 700;
+    padding: .75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 17px;
+    cursor: pointer;
+
+    & input {
+        margin-right: 8px;
+    }
+}
