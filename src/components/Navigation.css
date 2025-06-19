@@ -1,0 +1,32 @@
+.navigation__container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 2rem 0;
+}
+
+button {
+    width: 150px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .75rem 0;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.navigation__button--primary {
+    background-color: rgb(88 196 220);
+    color: rgb(64 71 86);
+}
+
+.navigation__button--secondary {
+    background-color: transparent;
+    color: rgb(246 247 249);
+    border: 1px solid #404756;
+}
