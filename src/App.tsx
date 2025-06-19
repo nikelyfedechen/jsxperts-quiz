@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import QuizItem from './components/QuizItem';
+import Navigation from './components/Navigation';
+import Header from './components/Header';
 
 const perguntas = [
   {
@@ -118,7 +120,13 @@ function App() {
     setRespostas({ ...respostas, [target.id]: target.value });
   };
 
-  const handleClick = () => {
+  const handleClickReturn = () => {
+    if (slide > 0 && slide < perguntas.length - 1) {
+      setSlide(slide - 1);
+    }
+  };
+
+  const handleClickNext = () => {
     if (slide < perguntas.length - 1) {
       setSlide(slide + 1);
     } else {
@@ -127,22 +135,30 @@ function App() {
     }
   };
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
-      {perguntas.map((pergunta, index) => (
-        <QuizItem
-          key={pergunta.id}
-          active={slide === index}
-          onChange={handleChange}
-          value={respostas[pergunta.id as respostasIds]}
-          {...pergunta}
-        />
-      ))}
-      {resultado ? (
-        <p>{resultado}</p>
-      ) : (
-        <button onClick={handleClick}>Próxima</button>
-      )}
-    </form>
+    <>
+      <Header />
+      <div className="container">
+        <form onSubmit={(event) => event.preventDefault()}>
+          {perguntas.map((pergunta, index) => (
+            <QuizItem
+              key={pergunta.id}
+              active={slide === index}
+              onChange={handleChange}
+              value={respostas[pergunta.id as respostasIds]}
+              {...pergunta}
+            />
+          ))}
+          {resultado ? (
+            <p>{resultado}</p>
+          ) : (
+            <Navigation
+              onClickNext={handleClickNext}
+              onClickReturn={handleClickReturn}
+            />
+          )}
+        </form>
+      </div>
+    </>
   );
 }
 
