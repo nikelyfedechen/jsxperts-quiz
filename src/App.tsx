@@ -3,6 +3,7 @@ import './App.css';
 import QuizItem from './components/QuizItem';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
+import Resultado from './components/Resultado';
 
 const perguntas = [
   {
@@ -149,7 +150,7 @@ function App() {
             />
           ))}
           {resultado ? (
-            <p>{resultado}</p>
+            <Resultado resultado={resultado} />
           ) : (
             <Navigation
               onClickNext={handleClickNext}
