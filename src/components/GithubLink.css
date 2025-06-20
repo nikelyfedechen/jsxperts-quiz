@@ -1,0 +1,15 @@
+.gh__container {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+}
+
+svg {
+    width: 2rem;
+    height: 2rem;
+    fill: #fff;
+
+    &:hover {
+        fill: rgb(88 196 220);
+    }
+}
