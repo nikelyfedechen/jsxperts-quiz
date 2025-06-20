@@ -111,6 +111,9 @@ function App() {
   const [respostas, setRespostas] = useState(respostasState);
   const [resultado, setResultado] = useState<string | null>(null);
 
+  const isStart = slide === 0;
+  const isTryAgain = slide > perguntas.length;
+
   const resultadoFinal = () => {
     const corretas = perguntas.filter(
       ({ id, resposta }) => respostas[id as respostasIds] === resposta,
@@ -124,19 +127,24 @@ function App() {
   };
 
   const handleClickReturn = () => {
-    if (slide > 0 && slide < perguntas.length - 1) {
-      setSlide(slide - 1);
-    }
+    setSlide(slide - 1);
   };
 
   const handleClickNext = () => {
-    if (slide < perguntas.length - 1) {
+    if (isTryAgain) {
+      setSlide(0);
+      setResultado(null);
+    } else if (slide < perguntas.length - 1) {
       setSlide(slide + 1);
     } else {
-      setSlide(slide + 1);
+      setSlide(slide + 2);
       resultadoFinal();
     }
   };
+
+  console.log(slide);
+  console.log(perguntas.length);
+
   return (
     <>
       <GithubLink />
@@ -146,20 +154,19 @@ function App() {
           {perguntas.map((pergunta, index) => (
             <QuizItem
               key={pergunta.id}
-              active={slide === index}
+              active={slide === index + 1}
               onChange={handleChange}
               value={respostas[pergunta.id as respostasIds]}
               {...pergunta}
             />
           ))}
-          {resultado ? (
-            <Resultado resultado={resultado} />
-          ) : (
-            <Navigation
-              onClickNext={handleClickNext}
-              onClickReturn={handleClickReturn}
-            />
-          )}
+          {resultado ? <Resultado resultado={resultado} /> : undefined}
+          <Navigation
+            onClickNext={handleClickNext}
+            onClickReturn={handleClickReturn}
+            start={isStart}
+            tryAgain={isTryAgain}
+          />
         </form>
       </div>
       <Footer />

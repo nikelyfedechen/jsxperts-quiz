@@ -1,16 +1,9 @@
-.navigation__container {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin: 2rem 0;
-}
-
 button {
-    width: 150px;
+    min-width: 150px;
     border-radius: 100px;
     cursor: pointer;
     border: 1px solid transparent;
-    padding: .75rem 0;
+    padding: .75rem 1.5rem;
     font-size: 17px;
     font-weight: 700;
 }
@@ -20,13 +13,117 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-.navigation__button--primary {
-    background-color: rgb(88 196 220);
+.btn-conteiner {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 2rem 0;
+}
+
+.btn-primary {
+    background-color: var(--color-background);
     color: rgb(64 71 86);
 }
 
-.navigation__button--secondary {
+.btn-secondary {
     background-color: transparent;
-    color: rgb(246 247 249);
+    color: var(--color-text);
     border: 1px solid #404756;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    padding: .75rem 3rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 99px;
+    box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.btn-content:hover,
+.btn-content:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+}
+
+.btn-content:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+}
+
+.icon-arrow {
+    width: 20px;
+    margin-left: 15px;
+    position: relative;
+    top: 6%;
+}
+
+/* SVG */
+#arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.btn-content:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+
+    50% {
+        fill: var(--color-background);
+    }
+
+    100% {
+        fill: white;
+    }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+    0% {
+        outline: 0.2em solid var(--color-background);
+        outline-offset: 0;
+    }
+}
+
+@keyframes btn-content {
+    0% {
+        outline: 0.2em solid var(--color-background);
+        outline-offset: 0;
+    }
 }
