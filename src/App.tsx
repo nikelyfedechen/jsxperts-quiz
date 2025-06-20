@@ -4,6 +4,8 @@ import QuizItem from './components/QuizItem';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
 import Resultado from './components/Resultado';
+import Footer from './components/Footer';
+import GithubLink from './components/GithubLink';
 
 const perguntas = [
   {
@@ -137,6 +139,7 @@ function App() {
   };
   return (
     <>
+      <GithubLink />
       <Header />
       <div className="container">
         <form onSubmit={(event) => event.preventDefault()}>
@@ -159,6 +162,7 @@ function App() {
           )}
         </form>
       </div>
+      <Footer />
     </>
   );
 }
