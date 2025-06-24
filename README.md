@@ -19,14 +19,14 @@ Este projeto simula um quiz interativo com perguntas sobre os principais conceit
    ```
 2. Instale as dependências:
 
-  ```bash
-    npm install
-  ```
+   ```bash
+   npm install
+   ```
 3. Rode o projeto:
 
-  ```bash
-    npm run dev
-  ```
+   ```bash
+   npm run dev
+   ```
 
 ### 🚀  Responda as perguntas e veja seu desempenho no final!
 
