@@ -30,3 +30,9 @@ button:focus-visible {
     color: var(--color-text);
     border: 1px solid #404756;
 }
+
+:disabled {
+    cursor: not-allowed;
+    background-color: #fafafa;
+    color: #ccc;
+}

@@ -5,6 +5,7 @@ type NavigationProps = {
   onClickNext: () => void;
   start: boolean;
   tryAgain: boolean;
+  disabled: boolean;
 };
 
 const Navigation = ({
@@ -12,6 +13,7 @@ const Navigation = ({
   onClickNext,
   start,
   tryAgain,
+  disabled,
 }: NavigationProps) => {
   return (
     <div className="btn-conteiner">
@@ -20,7 +22,7 @@ const Navigation = ({
           Voltar
         </button>
       )}
-      <button className="btn-primary" onClick={onClickNext}>
+      <button className="btn-primary" onClick={onClickNext} disabled={disabled}>
         {start ? 'Começar' : tryAgain ? 'Tentar novamente' : 'Próxima'}
       </button>
     </div>

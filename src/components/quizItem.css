@@ -20,9 +20,13 @@
     padding: .75rem 1.5rem;
     border-radius: 9999px;
     font-size: 17px;
-    cursor: pointer;
+
+    & label {
+        cursor: pointer;
+    }
 
     & input {
         margin-right: 8px;
+        cursor: pointer;
     }
 }

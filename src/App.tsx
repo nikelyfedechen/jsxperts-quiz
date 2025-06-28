@@ -163,6 +163,11 @@ function App() {
             onClickReturn={handleClickReturn}
             start={isStart}
             tryAgain={isTryAgain}
+            disabled={
+              !isStart &&
+              !isTryAgain &&
+              !respostas[perguntas[slide - 1].id as respostasIds]
+            }
           />
         </form>
       </div>
