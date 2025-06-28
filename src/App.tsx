@@ -142,9 +142,6 @@ function App() {
     }
   };
 
-  console.log(slide);
-  console.log(perguntas.length);
-
   return (
     <>
       <GithubLink />
