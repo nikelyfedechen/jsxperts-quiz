@@ -1,3 +1,5 @@
+<img src="./src//assets//banner-jsxperts.png" alt="Tela inicial do quiz" width="100%">
+
 # JSXperts: o quiz dos devs React
 
 Um quiz para testar seus conhecimentos sobre React.
@@ -17,11 +19,13 @@ Este projeto simula um quiz interativo com perguntas sobre os principais conceit
    ```bash
    git clone https://github.com/seu-usuario/react-quiz-battle.git
    ```
+
 2. Instale as dependências:
 
    ```bash
    npm install
    ```
+   
 3. Rode o projeto:
 
    ```bash
